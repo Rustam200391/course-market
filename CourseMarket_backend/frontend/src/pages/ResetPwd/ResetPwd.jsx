@@ -20,7 +20,8 @@ export const ResetPassword = () => {
     try {
       await axios
         .post(url, {
-          email: email,
+          new_password: new_password,
+          re_new_password: re_new_password,
         })
         .then((res) => {
           if (res.status === 200) {
@@ -72,18 +73,18 @@ export const ResetPassword = () => {
           <div className={style.reset__list}>
             <RegistrationItem
               title="подтверждение пароля"
-              error={errors.re_password}
+              error={errors.re_new_password}
             >
               <input
                 id="confirmpswd"
                 type="password"
-                {...register("re_password", {
+                {...register("re_new_password", {
                   pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
                   validate: checkPassword,
                 })}
               />
-              {errors.re_password?.type === "required" && (
+              {errors.re_new_password?.type === "required" && (
                 <span role="alert">Повторите пароль для подтверждения</span>
               )}
             </RegistrationItem>

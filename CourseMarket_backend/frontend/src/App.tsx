@@ -30,6 +30,7 @@ function App() {
           <Route path="/forgotPwd" element={<ForgotPassword />} />
           {/* если забыл пароль */}
 
+          {/* http://localhost:8000/password/reset/${uid}/${token}/ */}
           <Route path="/password/:uid/:token/" element={<ResetPassword />} />
           {/* переходим по ссылке из почты с токеном и паролем для сброса */}
 
